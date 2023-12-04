@@ -88,7 +88,7 @@ public class CustomPlayCmd extends MusicCommand
                 return;
             }
             StringBuilder builder = new StringBuilder(event.getClient().getWarning()+" Custom Command:\n");
-            builder.append("\n`").append(event.getClient().getPrefix()).append(name).append(" shortcut - plays the shortcut URL as defined in the configuration");
+            builder.append("\n`").append(event.getClient().getPrefix()).append(name).append(" <shortcut>` - ").append(this.help);
             event.reply(builder.toString());
             return;
         }
