@@ -71,12 +71,16 @@ public class JMusicBot
         // create prompt to handle startup
         Prompt prompt = new Prompt("JMusicBot");
         
-        // startup checks
-        OtherUtil.checkVersion(prompt);
+        // startup check
         OtherUtil.checkJavaVersion(prompt);
         
         // load config
         BotConfig config = new BotConfig(prompt);
+
+        // another startup check
+        OtherUtil.checkVersion(prompt, config.useUpdateAlerts());
+
+        // continue loading config
         config.load();
         if(!config.isValid())
             return;

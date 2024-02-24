@@ -157,7 +157,7 @@ public class OtherUtil
                     "It appears that you may not be using a supported Java version. Please use 64-bit java.");
     }
     
-    public static void checkVersion(Prompt prompt)
+    public static void checkVersion(Prompt prompt, boolean shouldShowUpdate)
     {
         // Get current version number
         String version = getCurrentVersion();
@@ -165,7 +165,7 @@ public class OtherUtil
         // Check for new version
         String latestVersion = getLatestVersion();
         
-        if(latestVersion!=null && !latestVersion.equals(version))
+        if(latestVersion!=null && !latestVersion.equals(version) && shouldShowUpdate)
         {
             prompt.alert(Prompt.Level.WARNING, "JMusicBot Version", String.format(NEW_VERSION_AVAILABLE, version, latestVersion));
         }
